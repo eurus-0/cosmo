@@ -6,4 +6,5 @@ oauthlib
 requests
 sqlalchemy
 supabase
+gunicorn
 werkzeug
