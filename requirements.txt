@@ -1,0 +1,10 @@
+cloudinary
+cloudinary_storage
+flask
+flask_login
+flask_sqlalchemy
+oauthlib
+requests
+sqlalchemy
+supabase
+werkzeug
