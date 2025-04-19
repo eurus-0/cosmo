@@ -7,6 +7,16 @@ from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask_login import LoginManager
 
+
+app = Flask(__name__)
+
+from routes import init_routes
+init_routes(app)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
