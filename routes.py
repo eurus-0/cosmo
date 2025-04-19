@@ -19,11 +19,11 @@ logger = logging.getLogger(__name__)
 UPLOADS_ENABLED = cloudinary_storage.is_configured
 
 # Routes
-@app.route('/')
-def index():
-    # Get all posts for the homepage, ordered by creation date (newest first)
-    posts = Post.query.order_by(Post.created_at.desc()).all()
-    return render_template('index.html', posts=posts, title="Home")
+def init_routes(app):
+    @app.route('/')
+    def index():
+        posts = Post.query.order_by(Post.created_at.desc()).all()
+        return render_template('index.html', posts=posts, title="Home")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
