@@ -19,11 +19,15 @@ logger = logging.getLogger(__name__)
 UPLOADS_ENABLED = cloudinary_storage.is_configured
 
 # Routes
+from flask import render_template
+from models import Post
+
 def init_routes(app):
     @app.route('/')
     def index():
         posts = Post.query.order_by(Post.created_at.desc()).all()
         return render_template('index.html', posts=posts, title="Home")
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
